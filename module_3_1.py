@@ -64,7 +64,7 @@ def is_contains(string, list_to_search):
     return False
 
 
-def random_word():
+def init_random_word():
     global list_words
 
     big_text = "Область видимости или scope определяет контекст переменной, в рамках которого ее можно \
@@ -82,17 +82,24 @@ def random_word():
     for wrd in list_words:
         if len(wrd) < 3:
             list_words.remove(wrd)
+
+
+def random_word():
+    global list_words
+
     min_word = 0
     max_word = len(list_words) - 1
     return list_words[randint(min_word, max_word)]
 
 
 # ===========================
+init_random_word()
+
 # формируем маленький список слов, которые будем проверять по большому списку
 wrd_list = []
 for i in range(5):
     wrd_list.append(random_word())
-# добавим "кривых слов"
+# добавим "кривых" слов
 wrd_list.append('ЛокальНый')
 wrd_list.append('пеРемеННых')
 wrd_list.append('оБласт')
